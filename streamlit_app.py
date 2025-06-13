@@ -11,6 +11,7 @@ today_str = datetime.today().strftime('%Y-%m-%d')
 
 # Set Streamlit layout to wide mode
 st.set_page_config(page_title = "Pimco Income Fund", 
+                   initial_sidebar_state = "expanded",
                    layout = "centered")
 
 st.title(":blue[PIMCO Income Fund]")
