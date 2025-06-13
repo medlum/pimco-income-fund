@@ -202,8 +202,7 @@ if nav_response.status_code in (200, 201) and dist_response.status_code in (200,
         #    f"Latest NAV (as of {yesterday_str})")
 
         text = """
-        Enter the dollar amount invested and unit price purchased to calculate the returns and payout. 
-        Monthly payout is based on the ex-dividend date at the end of each month.
+        Enter the dollar amount invested and unit price purchased to calculate the returns and estimated payout. 
         """
         st.info(text)
 
@@ -221,6 +220,11 @@ if nav_response.status_code in (200, 201) and dist_response.status_code in (200,
             col3.metric(":orange[Total return]", f"${total_return:.3f}")
             col4.metric(f":orange[Estimated monthly payout]",
                         f"${latest_payout * total_units:.3f}")
+            
+            text = """
+            Estimated monthly payout is based on the ex-dividend date of the previous month.
+            """
+            st.info(text)
 
 else:
     print(
